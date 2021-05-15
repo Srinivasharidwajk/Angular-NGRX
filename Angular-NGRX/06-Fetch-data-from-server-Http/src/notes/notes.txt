@@ -1,0 +1,37 @@
+Create a component , service
+-----------------------------
+customers -> ng g c customers 
+customer.service -> ng g s customer 
+ICustomer.ts (model)
+
+Install NGRX Librarires
+------------------------------------------------
+npm install @ngrx/store
+npm install @ngrx/store-devtools
+npm install @ngrx/effects
+npm install @ngrx/schematics --save-dev
+
+npm install @ngrx/store @ngrx/store-devtools @ngrx/effects @ngrx/schematics
+
+configure @ngrx/schematics with Angular CLI
+-------------------------------------------
+	ng add @ngrx/schematics@latest
+
+Create a Store , Effects , Actions , Reducer
+---------------------------------------------
+ng generate @ngrx/schematics:store State --root --module app.module.ts
+ng generate @ngrx/schematics:effect customer --module app.module.ts --group
+
+Note : Update "app.module.ts" file with "forRoot" instead of "forFeature"
+		EffectsModule.forRoot([CustomerEffects])
+
+ng generate @ngrx/schematics:action customer --group
+ng generate @ngrx/schematics:reducer customer --group
+
+Configure Services with Effects
+--------------------------------
+Effect Name , Action Name , Service function should have same name
+
+Action -> loadCustomers
+Effect -> loadCustomers
+service -> loadCustomers

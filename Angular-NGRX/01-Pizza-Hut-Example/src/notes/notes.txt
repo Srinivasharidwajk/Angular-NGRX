@@ -1,0 +1,39 @@
+Teminologies in NGRX
+---------------------
+-> Store -> centralized application state / store
+-> Action -> command / instruction to update / modify the state
+-> Dispatch -> the way you execute an actions
+-> Reducer -> store keeper to modify / update the state / store
+-> Selector -> to fetch the required state info from store
+-> Effects -> for server calls
+
+Configure NGRX to Angular Application
+-------------------------------------
+-> install the ngrx libraries
+	-> npm install @ngrx/store 
+	-> npm install @ngrx/store-devtools
+
+-> configure the store with app.module
+	-> import { StoreModule } from '@ngrx/store';
+	   import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+	   
+	   StoreModule.forRoot({}),
+		StoreDevtoolsModule.instrument()
+
+
+-> create an action & Reducer for the store 
+
+Store -> { pizza : {
+			pizzaCount : 25
+	}}
+
+-> connect NGRX with angular Component
+
+-> Angular CLI -> 
+
+-> @ngrx/Schematics -> 
+
+
+
+
+

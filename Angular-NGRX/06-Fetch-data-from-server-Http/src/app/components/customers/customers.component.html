@@ -1,0 +1,41 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col">
+      <p class="h3 text-danger">Customers Information</p>
+      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque blanditiis consectetur consequuntur, cumque cupiditate delectus deserunt enim eum explicabo fuga ipsam libero, minus non, sequi tenetur totam ut voluptatem voluptates?</p>
+    </div>
+  </div>
+  <button class="btn btn-danger btn-sm" (click)="getCustomers()">Get Customers</button>
+  <!-- Loading Spinner -->
+  <div *ngIf="loading">
+  <img src="../../../assets/img/spinner.gif"  class="d-block m-auto" alt="">
+</div>
+  <div class="row mt-3" *ngIf="!loading && customers.length > 0">
+    <div class="col">
+      <table class="table table-striped table-hover text-center table-danger">
+        <thead class="bg-dark text-white">
+        <tr>
+          <th>SNO</th>
+          <th>Photo</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Email</th>
+          <th>Location</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let customer of customers">
+          <td>{{customer.login.uuid.substr(customer.login.uuid.length - 4)}}</td>
+          <td>
+            <img [src]="customer.picture.large" alt="" width="50" height="50">
+          </td>
+          <td>{{customer.name.first}} {{customer.name.last}}</td>
+          <td>{{customer.dob.age}} Yrs</td>
+          <td>{{customer.email}}</td>
+          <td>{{customer.location.city}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

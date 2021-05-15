@@ -1,0 +1,45 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col">
+      <p class="h3 text-danger">Github Profile Search</p>
+      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam, officiis quibusdam? Atque commodi corporis maiores, quas rem rerum vero. Dolorum ex expedita fugiat minus molestias optio placeat totam voluptas voluptatum.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <form class="form-inline" (submit)="submitSearchUser()">
+        <div class="form-group">
+          <input
+            name="githubUsername"
+            [(ngModel)]="githubUsername"
+            type="text" class="form-control" placeholder="Github Username" size="30">
+        </div>
+        <div>
+          <input type="submit" class="btn btn-danger btn-sm" value="search">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- Loading Spinner -->
+<div *ngIf="loading">
+  <img src="../../../assets/img/spinner.gif"  class="d-block m-auto" alt="">
+</div>
+
+<!-- Github Profile Data -->
+<div class="container mt-3" *ngIf="githubProfile && !loading">
+  <div class="row">
+    <div class="col">
+      <app-github-profile [githubProfile]="githubProfile"></app-github-profile>
+    </div>
+  </div>
+</div>
+
+<!-- Github Repos Data -->
+<div class="container mt-3" *ngIf="githubRepos.length > 0 && !loading">
+  <div class="row">
+    <div class="col">
+      <app-github-repos [githubRepos]="githubRepos" [githubProfile]="githubProfile"></app-github-repos>
+    </div>
+  </div>
+</div>

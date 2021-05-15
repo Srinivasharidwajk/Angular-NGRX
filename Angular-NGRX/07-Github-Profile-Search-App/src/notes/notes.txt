@@ -1,0 +1,43 @@
+Create a component , service
+-----------------------------
+Github Profile Search
+--------------------
+github-app
+github-profile
+github-profile-card
+github-profile-details
+github-repos
+
+github.service -> ng g s github
+iProfile.ts (model)
+iRepos.ts (model)
+
+Install NGRX Librarires
+------------------------------------------------
+npm install @ngrx/store
+npm install @ngrx/store-devtools
+npm install @ngrx/effects
+npm install @ngrx/schematics --save-dev
+
+configure @ngrx/schematics with Angular CLI
+-------------------------------------------
+	ng add @ngrx/schematics@latest
+
+Create a Store , Effects , Actions , Reducer
+---------------------------------------------
+ng generate @ngrx/schematics:store State --root --module app.module.ts
+ng generate @ngrx/schematics:effect github --root --module app.module.ts --group
+
+Note : Update "app.module.ts" file with "forRoot" instead of "forFeature"
+		EffectsModule.forRoot([CustomerEffects])
+
+ng generate @ngrx/schematics:action github --group
+ng generate @ngrx/schematics:reducer github --group
+
+Configure Services with Effects
+--------------------------------
+Effect Name , Action Name , Service function should have same name
+
+Action -> loadProfile , loadRepos
+Effect -> loadProfile , loadRepos
+service -> loadProfile , loadRepos

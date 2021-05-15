@@ -1,0 +1,34 @@
+Teminologies in NGRX
+---------------------
+-> Store -> centralized application state / store
+-> Action -> command / instruction to update / modify the state
+-> Dispatch -> the way you execute an actions
+-> Reducer -> store keeper to modify / update the state / store
+-> Selector -> to fetch the required state info from store
+-> Effects -> for server calls
+
+---------------------------------------------------------------------------
+				Angular	NgRx Setup & Examples
+---------------------------------------------------------------------------
+-> install the @ngrx/schematics for Angular CLI
+	npm install @ngrx/schematics --save-dev
+	ng add @ngrx/schematics@latest
+
+-> Install the "store" , "dev-tools" for angular application
+		npm install @ngrx/store --save
+		npm install @ngrx/store-devtools --save
+
+-> Create a Root Store to our application
+		ng generate @ngrx/schematics:store State --root --module app.module.ts
+
+		 (or)
+
+		ng generate store State --root --module app.module.ts
+
+-> create a component -> ng g c <NAME_OF_COMPONENT>
+
+-> Create a Group Reducer in our application component
+	ng generate @ngrx/schematics:reducer <NAME_OF_REDUCER> --group
+
+-> Create an Group Action in our application component
+	ng generate @ngrx/schematics:action <NAME_OF_ACTION> --group
